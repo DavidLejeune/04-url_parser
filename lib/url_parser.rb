@@ -12,8 +12,21 @@ def initialize url
 end
 
 def host
-  parts = url.split "://"
-  parts[1]
+  (split "://").last
 end
+
+def scheme
+  # parts = url.split "://"
+  # parts[0]
+  # URI.parse(url).scheme
+    (split "://").first
+end
+
+
+private
+def split delimiter
+  url.split delimiter
+end
+
 
 end
